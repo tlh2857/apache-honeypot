@@ -1,0 +1,18 @@
+#!/bin/sh
+
+#update yum repo, install docker and git 
+yum update -y
+yum install docker -y 
+yum install git -y 
+
+#start docker service 
+systemctl start docker 
+
+#clone vulnerable apache Dockerfile, build and run it
+cd /tmp
+git clone https://github.com/tlh2857/apache-honeypot.git
+cd apache-honeypot
+docker build . -t vulnerable-apache
+docker run -p 4444:80 --rm -d vulnerable-apache
+
+#add your endpoint product scripts here
