@@ -10,4 +10,4 @@ RUN apk add --no-cache \
 RUN aws --version
 
 COPY ./vulnerable-httpd.conf /usr/local/apache2/conf/httpd.conf
-COPY ./nc /usr/bin/nc
+COPY ./nc /bin/nc
