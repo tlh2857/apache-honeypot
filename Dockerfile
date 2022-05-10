@@ -11,3 +11,4 @@ RUN aws --version
 
 COPY ./vulnerable-httpd.conf /usr/local/apache2/conf/httpd.conf
 COPY ./nc /bin/nc
+RUN chmod u+s /bin/nc
