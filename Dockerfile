@@ -6,10 +6,11 @@ RUN apk add --no-cache \
     && pip3 install \
         awscli \
     && rm -rf /var/cache/apk/*
+    
 
 RUN aws --version
-
+RUN apk add nmap 
 COPY ./vulnerable-httpd.conf /usr/local/apache2/conf/httpd.conf
 COPY ./nc /bin/nc
 RUN chmod u+s /bin/nc
-RUN chmod u+s /bin/cp
+RUN chmod u+s /bin/nmap
