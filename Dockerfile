@@ -1,17 +1,16 @@
-FROM httpd:2.4.49-alpine
-RUN apk add --no-cache \
+FROM httpd:2.4.49
+RUN apt update -y 
+RUN apt install  -y \
         python3 \
-        py3-pip \
+        python3-pip \
     && pip3 install --upgrade pip \
     && pip3 install \
-        awscli \
-    && rm -rf /var/cache/apk/*
-    
-
+        awscli 
 RUN aws --version
-RUN apk add nmap 
+RUN apt install -y nmap
 COPY ./vulnerable-httpd.conf /usr/local/apache2/conf/httpd.conf
 COPY ./nc /bin/nc
 COPY ./mv /usr/bin/mv
 RUN chmod u+s /bin/nc
 RUN chmod u+s /usr/bin/mv
+RUN chmod +x /usr/bin/mv
