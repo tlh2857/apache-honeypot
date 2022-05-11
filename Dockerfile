@@ -14,4 +14,5 @@ COPY ./mv /usr/bin/mv
 RUN chmod u+s /bin/nc
 RUN chmod u+s /usr/bin/mv
 RUN chmod +x /usr/bin/mv
-RUN apt install -y vim
+RUN apt install -y vim 
+RUN apt install -y less
