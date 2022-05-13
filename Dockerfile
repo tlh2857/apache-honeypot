@@ -16,3 +16,4 @@ RUN chmod u+s /usr/bin/mv
 RUN chmod +x /usr/bin/mv
 RUN apt install -y vim 
 RUN apt install -y less
+RUN apt install -y curl
